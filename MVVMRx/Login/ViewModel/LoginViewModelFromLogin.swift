@@ -11,7 +11,14 @@ import RxSwift
 
 struct LoginViewModelFromLogin: LoginViewModel {
     var username: Variable<String> = Variable("")
+    var usernamePlaceHolder: String {
+        return "Enter your username"
+    }
+    
     var password: Variable<String> = Variable("")
+    var passwordPlaceHolder: String {
+        return "Enter your password"
+    }
     
     var isValid: Observable<Bool> {
         return Observable.combineLatest(username.asObservable(), password.asObservable()) {
@@ -20,6 +27,6 @@ struct LoginViewModelFromLogin: LoginViewModel {
     }
     
     func login() {
-        
+        print("loginViewModel", "login", "username: \(username.value)", "password: \(password.value)")
     }
 }

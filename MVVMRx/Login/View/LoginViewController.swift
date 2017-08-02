@@ -30,6 +30,7 @@ class LoginViewController: UIViewController {
     
     func setupUsernameTF() {
         usernameTxtField.layer.cornerRadius = usernameTxtField.frame.height / 2
+        usernameTxtField.placeholder = loginViewModel.usernamePlaceHolder
         usernameTxtField.rx.text.asObservable()
             .map{ $0 ?? "" }
             .bind(to: loginViewModel.username)
@@ -38,6 +39,7 @@ class LoginViewController: UIViewController {
     
     func setupPWTF() {
         passswordTxtField.layer.cornerRadius = passswordTxtField.frame.height / 2
+        passswordTxtField.placeholder = loginViewModel.passwordPlaceHolder
         passswordTxtField.rx.text.asObservable()
             .map{ $0 ?? "" }
             .bind(to: loginViewModel.password)
@@ -46,9 +48,14 @@ class LoginViewController: UIViewController {
     
     func setupLoginBtn() {
         loginBtn.layer.cornerRadius = loginBtn.frame.height / 2
+        
         loginViewModel
             .isValid
             .bind(to: loginBtn.rx.isEnabled)
+            .addDisposableTo(disposeBag)
+        
+        loginBtn.rx.tap.asObservable()
+            .bind { [unowned self] in self.loginViewModel.login() }
             .addDisposableTo(disposeBag)
     }
 

@@ -11,7 +11,9 @@ import RxSwift
 
 protocol LoginViewModel {
     var username: Variable<String> { set get }
+    var usernamePlaceHolder: String { get }
     var password: Variable<String> { set get }
+    var passwordPlaceHolder: String { get }
     var isValid: Observable<Bool> { get }
     func login()
 }
