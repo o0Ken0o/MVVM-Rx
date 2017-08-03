@@ -66,10 +66,60 @@
                         <outlet property="loginBtn" destination="Fsf-ma-zOn" id="987-WY-8MD"/>
                         <outlet property="passswordTxtField" destination="LDK-ue-aJv" id="UEJ-SF-ovZ"/>
                         <outlet property="usernameTxtField" destination="ER1-aa-KaI" id="wy1-Il-Ur2"/>
+                        <segue destination="J9W-gT-yrK" kind="presentation" identifier="SongsListViewController" id="s6D-Jp-aV0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+        </scene>
+        <!--Songs List View Controller-->
+        <scene sceneID="aRV-YG-jEX">
+            <objects>
+                <viewController id="Fsc-SJ-hV3" customClass="SongsListViewController" customModule="MVVMRx" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="HHK-T9-rUq"/>
+                        <viewControllerLayoutGuide type="bottom" id="yok-pU-TBB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Rzx-9n-ymp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pvK-TB-WoQ">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="pvK-TB-WoQ" firstAttribute="leading" secondItem="Rzx-9n-ymp" secondAttribute="leading" id="AD7-zC-1lx"/>
+                            <constraint firstAttribute="trailing" secondItem="pvK-TB-WoQ" secondAttribute="trailing" id="MBu-ZM-d7e"/>
+                            <constraint firstItem="pvK-TB-WoQ" firstAttribute="top" secondItem="HHK-T9-rUq" secondAttribute="bottom" id="RU9-vi-iMJ"/>
+                            <constraint firstItem="yok-pU-TBB" firstAttribute="top" secondItem="pvK-TB-WoQ" secondAttribute="bottom" id="p9t-Tf-ZFy"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="JJx-CQ-A3v"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eLT-G0-YHd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1679" y="139"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="rOa-fe-Xe9">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="J9W-gT-yrK" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Qd9-va-Fu4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Fsc-SJ-hV3" kind="relationship" relationship="rootViewController" id="XMA-tp-y4g"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nZF-EB-q2f" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="913" y="139"/>
         </scene>
     </scenes>
 </document>

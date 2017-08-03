@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3964594A1F32E74A00949EA8 /* SongsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396459491F32E74A00949EA8 /* SongsListViewController.swift */; };
+		3964594D1F32E9A400949EA8 /* SongsListAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3964594C1F32E9A400949EA8 /* SongsListAPIClient.swift */; };
+		3964594F1F32EB2B00949EA8 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3964594E1F32EB2B00949EA8 /* Song.swift */; };
+		396459511F32EB5300949EA8 /* SongsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396459501F32EB5300949EA8 /* SongsViewModel.swift */; };
 		3977871D1F31B366004DC517 /* UIColor+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3977871C1F31B366004DC517 /* UIColor+Custom.swift */; };
 		3977871F1F31BA4E004DC517 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3977871E1F31BA4E004DC517 /* LoginViewModel.swift */; };
 		397787211F31BCB0004DC517 /* LoginViewModelFromLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397787201F31BCB0004DC517 /* LoginViewModelFromLogin.swift */; };
@@ -21,6 +25,10 @@
 /* Begin PBXFileReference section */
 		0D20A1CE4557F3A1DF4D76D2 /* Pods-MVVMRx.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVMRx.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MVVMRx/Pods-MVVMRx.debug.xcconfig"; sourceTree = "<group>"; };
 		272B4B103945CC325CB48A1B /* Pods-MVVMRx.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVMRx.release.xcconfig"; path = "Pods/Target Support Files/Pods-MVVMRx/Pods-MVVMRx.release.xcconfig"; sourceTree = "<group>"; };
+		396459491F32E74A00949EA8 /* SongsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SongsListViewController.swift; path = SongsList/View/SongsListViewController.swift; sourceTree = "<group>"; };
+		3964594C1F32E9A400949EA8 /* SongsListAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SongsListAPIClient.swift; path = SongsList/Services/SongsListAPIClient.swift; sourceTree = "<group>"; };
+		3964594E1F32EB2B00949EA8 /* Song.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Song.swift; path = SongsList/Model/Song.swift; sourceTree = "<group>"; };
+		396459501F32EB5300949EA8 /* SongsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SongsViewModel.swift; path = SongsList/ViewModel/SongsViewModel.swift; sourceTree = "<group>"; };
 		3977871C1F31B366004DC517 /* UIColor+Custom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIColor+Custom.swift"; path = "Extensions/UIColor+Custom.swift"; sourceTree = "<group>"; };
 		3977871E1F31BA4E004DC517 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewModel.swift; path = Login/ViewModel/LoginViewModel.swift; sourceTree = "<group>"; };
 		397787201F31BCB0004DC517 /* LoginViewModelFromLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewModelFromLogin.swift; path = Login/ViewModel/LoginViewModelFromLogin.swift; sourceTree = "<group>"; };
@@ -46,6 +54,49 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		396459451F32E6EF00949EA8 /* SongsList */ = {
+			isa = PBXGroup;
+			children = (
+				396459461F32E6F900949EA8 /* Model */,
+				396459471F32E6FF00949EA8 /* View */,
+				396459481F32E70500949EA8 /* ViewModel */,
+				3964594B1F32E95B00949EA8 /* Services */,
+			);
+			name = SongsList;
+			sourceTree = "<group>";
+		};
+		396459461F32E6F900949EA8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3964594E1F32EB2B00949EA8 /* Song.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		396459471F32E6FF00949EA8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				396459491F32E74A00949EA8 /* SongsListViewController.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		396459481F32E70500949EA8 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				396459501F32EB5300949EA8 /* SongsViewModel.swift */,
+			);
+			name = ViewModel;
+			sourceTree = "<group>";
+		};
+		3964594B1F32E95B00949EA8 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				3964594C1F32E9A400949EA8 /* SongsListAPIClient.swift */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
 		397787171F31B264004DC517 /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +160,7 @@
 		39D029C71F3179FB00C267A1 /* MVVMRx */ = {
 			isa = PBXGroup;
 			children = (
+				396459451F32E6EF00949EA8 /* SongsList */,
 				3977871B1F31B33F004DC517 /* Extensions */,
 				397787171F31B264004DC517 /* Login */,
 				39D029C81F3179FB00C267A1 /* AppDelegate.swift */,
@@ -261,11 +313,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				396459511F32EB5300949EA8 /* SongsViewModel.swift in Sources */,
 				3977871F1F31BA4E004DC517 /* LoginViewModel.swift in Sources */,
 				39D029CB1F3179FB00C267A1 /* LoginViewController.swift in Sources */,
 				39D029C91F3179FB00C267A1 /* AppDelegate.swift in Sources */,
+				3964594D1F32E9A400949EA8 /* SongsListAPIClient.swift in Sources */,
+				3964594F1F32EB2B00949EA8 /* Song.swift in Sources */,
 				397787211F31BCB0004DC517 /* LoginViewModelFromLogin.swift in Sources */,
 				3977871D1F31B366004DC517 /* UIColor+Custom.swift in Sources */,
+				3964594A1F32E74A00949EA8 /* SongsListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
