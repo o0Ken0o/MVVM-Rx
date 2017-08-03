@@ -57,7 +57,21 @@ class LoginViewController: UIViewController {
         loginBtn.rx.tap.asObservable()
             .bind { [unowned self] in self.loginViewModel.login() }
             .addDisposableTo(disposeBag)
+        
+        loginViewModel.isLoginSuccessful.asObservable()
+            .bind {
+                [unowned self] (isLoginSuccessful) in
+                if isLoginSuccessful {
+                    self.goToSongsListView()
+                }
+            }.addDisposableTo(disposeBag)
     }
+}
 
+// MARK: extension for segue management
+extension LoginViewController {
+    func goToSongsListView() {
+        performSegue(withIdentifier: "SongsListViewController", sender: nil)
+    }
 }
 

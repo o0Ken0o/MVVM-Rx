@@ -75,7 +75,7 @@
         <!--Songs List View Controller-->
         <scene sceneID="aRV-YG-jEX">
             <objects>
-                <viewController id="Fsc-SJ-hV3" customClass="SongsListViewController" customModule="MVVMRx" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="Fsc-SJ-hV3" customClass="SongsListViewController" customModule="MVVMRx" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="HHK-T9-rUq"/>
                         <viewControllerLayoutGuide type="bottom" id="yok-pU-TBB"/>
@@ -98,6 +98,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="JJx-CQ-A3v"/>
+                    <connections>
+                        <outlet property="tableView" destination="pvK-TB-WoQ" id="xEh-m6-ogC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eLT-G0-YHd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

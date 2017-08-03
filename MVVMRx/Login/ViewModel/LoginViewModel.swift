@@ -15,5 +15,6 @@ protocol LoginViewModel {
     var password: Variable<String> { set get }
     var passwordPlaceHolder: String { get }
     var isValid: Observable<Bool> { get }
+    var isLoginSuccessful: Variable<Bool> { get }
     func login()
 }
