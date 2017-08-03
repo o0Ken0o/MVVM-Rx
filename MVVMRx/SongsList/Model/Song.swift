@@ -36,7 +36,7 @@ struct Song {
     
     private static func formatDate(dateStr: String) -> Date? {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-ddTHH:mm:ssZ"
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
         return dateFormatter.date(from: dateStr)
     }
 }

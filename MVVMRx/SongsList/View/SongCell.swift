@@ -29,6 +29,8 @@ class SongCell: UITableViewCell {
     }
     
     func configureCell(songViewModel: SongViewModel) {
+        coverImgView.image = UIImage(named: "default")
+        coverImgView.contentMode = .scaleAspectFit
         songNameLabel.text = songViewModel.songName
         artistNameLabel.text = songViewModel.artistName
         releaseDateLabel.text = songViewModel.releaseDate
