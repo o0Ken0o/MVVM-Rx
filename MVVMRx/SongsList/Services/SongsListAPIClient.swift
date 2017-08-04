@@ -32,4 +32,24 @@ class SongsListAPIClient {
             }
         }
     }
+    
+    func getImg(from urlStr: String, completion: @escaping (Bool, String?, Data?) -> ()) {
+        guard let url = URL(string: urlStr) else { return }
+        
+        let session = URLSession(configuration: .default)
+        let task = session.dataTask(with: url) { (data, response, error) in
+            if let error = error {
+                completion(false, error.localizedDescription, nil)
+            } else {
+                if let res = response as? HTTPURLResponse, res.statusCode / 100 == 2, let imageData = data {
+                    completion(true, nil, imageData)
+                } else {
+                    completion(false, "response not 2xx", nil)
+                }
+            }
+            
+        }
+        
+        task.resume()
+    }
 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RxSwift
 
 class SongCell: UITableViewCell {
     
@@ -16,6 +17,11 @@ class SongCell: UITableViewCell {
     @IBOutlet weak var releaseDateLabel: UILabel!
     
     static let CellIdentifier = "SongCell"
+    
+    var viewModel: SongViewModel!
+    var getImgObservable: Disposable!
+    
+    private let disposeBag = DisposeBag()
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -29,10 +35,27 @@ class SongCell: UITableViewCell {
     }
     
     func configureCell(songViewModel: SongViewModel) {
+        viewModel = songViewModel
+        
         coverImgView.image = UIImage(named: "default")
         coverImgView.contentMode = .scaleAspectFit
         songNameLabel.text = songViewModel.songName
         artistNameLabel.text = songViewModel.artistName
         releaseDateLabel.text = songViewModel.releaseDate
+        
+        getImgObservable = viewModel.coverImgData.asObservable()
+            .bind(onNext: { [unowned self] (data) in
+                if let data = data {
+                    self.coverImgView.image = UIImage(data: data)
+                    self.setNeedsLayout()
+                }
+            })
+        getImgObservable.addDisposableTo(disposeBag)
+        viewModel.getCoverImg()
+    }
+    
+    override func prepareForReuse() {
+        getImgObservable.dispose()
+        super.prepareForReuse()
     }
 }

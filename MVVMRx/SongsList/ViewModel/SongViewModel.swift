@@ -15,4 +15,6 @@ protocol SongViewModel {
     var songName: String { get }
     var artistName: String { get }
     var releaseDate: String { get }
+    
+    func getCoverImg()
 }

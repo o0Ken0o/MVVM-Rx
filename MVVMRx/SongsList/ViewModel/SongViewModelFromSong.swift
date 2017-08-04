@@ -36,23 +36,13 @@ class SongViewModelFromSong: SongViewModel {
         return dateFormatter.string(from: date)
     }
     
-    func getCoverImg(from urlStr: String) {
-        guard let url = URL(string: urlStr) else { return }
-        
-        let session = URLSession(configuration: .default)
-        let task = session.dataTask(with: url) { [unowned self] (data, response, error) in
-            if let _ = error {
-                return
-            } else {
-                if let res = response as? HTTPURLResponse, res.statusCode / 200 == 2, let imageData = data {
-                    DispatchQueue.main.async {
-                        self.coverImgData.value = imageData
-                    }
+    func getCoverImg() {
+        SongsListAPIClient.shared.getImg(from: self.coverImage) { (isSuccessful, errorMsg, data) in
+            if isSuccessful, let imageData = data {
+                DispatchQueue.main.async { [unowned self] in
+                    self.coverImgData.value = imageData
                 }
             }
-            
         }
-        
-        task.resume()
     }
 }
