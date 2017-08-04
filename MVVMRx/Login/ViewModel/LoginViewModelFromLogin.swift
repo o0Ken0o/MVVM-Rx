@@ -26,7 +26,8 @@ struct LoginViewModelFromLogin: LoginViewModel {
         }
     }
     
+    var isLoginSuccessful: Variable<Bool> = Variable<Bool>(false)
     func login() {
-        print("loginViewModel", "login", "username: \(username.value)", "password: \(password.value)")
+        isLoginSuccessful.value = true
     }
 }

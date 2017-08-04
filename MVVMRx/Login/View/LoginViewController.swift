@@ -57,7 +57,31 @@ class LoginViewController: UIViewController {
         loginBtn.rx.tap.asObservable()
             .bind { [unowned self] in self.loginViewModel.login() }
             .addDisposableTo(disposeBag)
+        
+        loginViewModel.isLoginSuccessful.asObservable()
+            .bind {
+                [unowned self] (isLoginSuccessful) in
+                if isLoginSuccessful {
+                    self.goToSongsListView()
+                }
+            }.addDisposableTo(disposeBag)
     }
+}
 
+// MARK: extension for segue management
+extension LoginViewController {
+    func goToSongsListView() {
+        performSegue(withIdentifier: "SongsListViewController", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let identifier = segue.identifier else { return }
+        
+        if identifier == "SongsListViewController" {
+            if let navVC = segue.destination as? UINavigationController, let songsListVC = navVC.childViewControllers.first as? SongsListViewController {
+                songsListVC.songsListViewModel = SongsListViewModelFromSongs(songs: [])
+            }
+        }
+    }
 }
 
