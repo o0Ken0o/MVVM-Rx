@@ -17,15 +17,15 @@ class SongsListAPIClient {
     
     private init() {}
     
-    func getSongsList(completion: @escaping (Bool, String?, [SongViewModel]?) -> ()) {
+    func getSongsList(completion: @escaping (Bool, String?, [Song]?) -> ()) {
         Alamofire.request(songsEndpt).validate().responseJSON { (response) in
             switch response.result {
                 
             case .success(let value):
                 let feed = JSON(value)["feed"].dictionaryValue
                 let results = JSON(feed)["results"].arrayValue
-                let songsViewModel = results.map{ SongViewModelFromSong(song: Song(json: $0)) }
-                completion(true, nil, songsViewModel)
+                let songs = results.map{ Song(json: $0) }
+                completion(true, nil, songs)
                 
             case .failure(let error):
                 completion(false, error.localizedDescription, nil)

@@ -17,6 +17,8 @@
 		3977871D1F31B366004DC517 /* UIColor+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3977871C1F31B366004DC517 /* UIColor+Custom.swift */; };
 		3977871F1F31BA4E004DC517 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3977871E1F31BA4E004DC517 /* LoginViewModel.swift */; };
 		397787211F31BCB0004DC517 /* LoginViewModelFromLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397787201F31BCB0004DC517 /* LoginViewModelFromLogin.swift */; };
+		399D153E1F34068C00E2369E /* SongsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399D153D1F34068C00E2369E /* SongsListViewModel.swift */; };
+		399D15401F3406B900E2369E /* SongsListViewModelFromSongs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399D153F1F3406B900E2369E /* SongsListViewModelFromSongs.swift */; };
 		39D029C91F3179FB00C267A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D029C81F3179FB00C267A1 /* AppDelegate.swift */; };
 		39D029CB1F3179FB00C267A1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D029CA1F3179FB00C267A1 /* LoginViewController.swift */; };
 		39D029CE1F3179FB00C267A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39D029CC1F3179FB00C267A1 /* Main.storyboard */; };
@@ -38,6 +40,8 @@
 		3977871C1F31B366004DC517 /* UIColor+Custom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIColor+Custom.swift"; path = "Extensions/UIColor+Custom.swift"; sourceTree = "<group>"; };
 		3977871E1F31BA4E004DC517 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewModel.swift; path = Login/ViewModel/LoginViewModel.swift; sourceTree = "<group>"; };
 		397787201F31BCB0004DC517 /* LoginViewModelFromLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewModelFromLogin.swift; path = Login/ViewModel/LoginViewModelFromLogin.swift; sourceTree = "<group>"; };
+		399D153D1F34068C00E2369E /* SongsListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SongsListViewModel.swift; path = SongsList/ViewModel/SongsListViewModel.swift; sourceTree = "<group>"; };
+		399D153F1F3406B900E2369E /* SongsListViewModelFromSongs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SongsListViewModelFromSongs.swift; path = SongsList/ViewModel/SongsListViewModelFromSongs.swift; sourceTree = "<group>"; };
 		39D029C51F3179FB00C267A1 /* MVVMRx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVVMRx.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39D029C81F3179FB00C267A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		39D029CA1F3179FB00C267A1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = Login/View/LoginViewController.swift; sourceTree = "<group>"; };
@@ -94,6 +98,8 @@
 			children = (
 				396459501F32EB5300949EA8 /* SongViewModel.swift */,
 				396459521F330BDA00949EA8 /* SongViewModelFromSong.swift */,
+				399D153D1F34068C00E2369E /* SongsListViewModel.swift */,
+				399D153F1F3406B900E2369E /* SongsListViewModelFromSongs.swift */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -329,9 +335,11 @@
 				3977871F1F31BA4E004DC517 /* LoginViewModel.swift in Sources */,
 				39D029CB1F3179FB00C267A1 /* LoginViewController.swift in Sources */,
 				39D029C91F3179FB00C267A1 /* AppDelegate.swift in Sources */,
+				399D15401F3406B900E2369E /* SongsListViewModelFromSongs.swift in Sources */,
 				3964594D1F32E9A400949EA8 /* SongsListAPIClient.swift in Sources */,
 				3964594F1F32EB2B00949EA8 /* Song.swift in Sources */,
 				397787211F31BCB0004DC517 /* LoginViewModelFromLogin.swift in Sources */,
+				399D153E1F34068C00E2369E /* SongsListViewModel.swift in Sources */,
 				3977871D1F31B366004DC517 /* UIColor+Custom.swift in Sources */,
 				3964594A1F32E74A00949EA8 /* SongsListViewController.swift in Sources */,
 			);

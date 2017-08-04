@@ -73,5 +73,15 @@ extension LoginViewController {
     func goToSongsListView() {
         performSegue(withIdentifier: "SongsListViewController", sender: nil)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let identifier = segue.identifier else { return }
+        
+        if identifier == "SongsListViewController" {
+            if let navVC = segue.destination as? UINavigationController, let songsListVC = navVC.childViewControllers.first as? SongsListViewController {
+                songsListVC.songsListViewModel = SongsListViewModelFromSongs(songs: [])
+            }
+        }
+    }
 }
 
