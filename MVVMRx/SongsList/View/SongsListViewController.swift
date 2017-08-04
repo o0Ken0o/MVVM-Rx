@@ -8,6 +8,7 @@
 
 import UIKit
 import RxSwift
+import RxCocoa
 
 class SongsListViewController: UIViewController {
     
@@ -20,39 +21,17 @@ class SongsListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UINib(nibName: "SongCell", bundle: nil), forCellReuseIdentifier: SongCell.CellIdentifier)
         
         songsListViewModel.list.asObservable()
-            .bind { [unowned self] (viewModels) in
-                self.tableView.reloadData()
+            .bind(to: tableView
+                .rx
+                .items(cellIdentifier: SongCell.CellIdentifier, cellType: SongCell.self)) {
+                    row, song, cell in
+                  cell.configureCell(songViewModel: song)
             }
             .addDisposableTo(disposeBag)
-    }
-}
-
-extension SongsListViewController: UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return songsListViewModel.noOfSections.value
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return songsListViewModel.noOfRows.value
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let songViewModel = songsListViewModel.list.value[indexPath.row]
-        
-        if let cell = tableView.dequeueReusableCell(withIdentifier: SongCell.CellIdentifier, for: indexPath) as? SongCell {
-            cell.configureCell(songViewModel: songViewModel)
-            return cell
-        }
-        
-        let cell = SongCell()
-        cell.configureCell(songViewModel: songViewModel)
-        
-        return cell
     }
 }
 
